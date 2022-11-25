@@ -1,0 +1,37 @@
+.blue-button {
+  background-color: #1da1f2;
+  border-radius: 40px;
+}
+
+.auth-text {
+  color: #e1e8ed;
+}
+
+#login-switch-a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+.form-control {
+  border-radius: 30px;
+}
+
+#username-taken-msg {
+  color: #e3242b
+}
+
+#username {
+  margin-bottom: 10px;
+}
+
+#username-req {
+  color: #e1e8ed;
+}
+
+#name-req {
+  color: #aab8c2;
+}
+
+#password-too-weak {
+  color: #ffda36
+}

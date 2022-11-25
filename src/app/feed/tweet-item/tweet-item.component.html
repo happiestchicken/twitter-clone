@@ -1,0 +1,55 @@
+<p *ngIf="isRetElse && isFeed"><i class="fa-solid fa-retweet"></i> retweeted by @{{ retBy }}</p>
+<p *ngIf="retByCurrUser && isFeed"><i class="fa-solid fa-retweet"></i> you retweeted</p>
+<div class="tweet-feed-box" *ngIf="showTweet">
+  <div id="tweet-header">
+    <div id="left-header-wrapper">
+      <div id="pp-name-wrapper">
+        <div id="profile-pic" [ngStyle]="{backgroundColor: tweet.tweetUserColor}">
+          <i class="fa-solid fa-egg"></i>
+        </div>
+        <div class="name-username-wrap">
+          <h2 id="name-disp">{{ tweet.tweetName }}</h2>
+          <h5 id="username-disp">@{{ tweet.tweetUsername }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="follow-wrap">
+      <button *ngIf="isNotCurrentUserLoaded | async"
+        [ngStyle]="{ backgroundColor: isFollowing ? '#1da1f2' : '#657786' }"
+        type="button"
+        id="follow-btn"
+        class=""
+        (click)="!isFollowing ? addFollow() : removeFollow()">{{ isFollowing ? 'Following' : 'Follow' }}
+      </button>
+    </div>
+  </div>
+  <textarea readonly id="tweet-disp-area">{{ tweet.tweet }}</textarea>
+  <div id="footer-div">
+    <button
+      id="like-btn"
+      class="btn btn-primary"
+      type="button"
+      [ngStyle]="{ color: isLiked ? 'green' : 'red' }"
+      (click)="!isLiked ? addLike() : removeLike()"
+      [disabled]="isCurrentUserLoaded | async">
+      <span *ngIf="isLiked"><i class="fa-solid fa-heart"></i></span>
+      <span *ngIf="!isLiked"><i class="fa-regular fa-heart"></i></span>
+    </button>
+    <span id="tweet-counts">
+      {{ tweet.tweetLikes }}
+    </span>
+    <button
+
+      type="button"
+      id="ret-btn"
+      class="btn btn-primary"
+      [ngStyle]="{ color: isRet ? 'green' : 'red' }"
+      (click)="!isRet? addRet() : removeRet()"
+      [disabled]="isCurrentUserLoaded | async">
+      <span [ngStyle]="{color: isRet ? '#26cf8e' : '#14171a'}"><i class="fa-solid fa-retweet"></i></span>
+    </button>
+    <span id="tweet-counts">
+       {{ tweet.tweetRets }}
+    </span>
+  </div>
+</div>

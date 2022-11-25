@@ -1,0 +1,63 @@
+<ng-template appPlaceholder></ng-template>
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="alert alert-danger" *ngIf="error">
+            <p>{{ error }}</p>
+        </div>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+                <label for="email" class="auth-text">Email</label>
+                <input type="email" id="email" formControlName="email" class="form-control" name="email" required email minlength="6" />
+            </div>
+            <div class="form-group" *ngIf="!loginMode">
+              <label for="username" class="auth-text">Username</label>
+              <input type="username" id="username" formControlName="username" class="form-control" name="username"  />
+              <span *ngIf="!authForm.controls['username'].valid">
+                <span id="username-taken-msg" *ngIf="authForm.controls['username'].errors!['usernameTaken']">Username is already taken!</span>
+                <span id="username-req" *ngIf="
+                  authForm.controls['username'].errors!['usernameLength']
+                  || authForm.controls['username'].errors!['usernameWhitespace']
+                  || authForm.controls['username'].errors!['invalidChars']
+                  || authForm.controls['username'].errors!['usernameProfanity']
+                  ">
+                  Username requirements:
+                  <ul>
+                    <li [ngStyle]="{color: authForm.controls['username'].errors!['invalidChars'] ? '#aab8c2' : '#1Da1f2'}">Must only contain letters, numbers, underscores (_) and periods (.)</li>
+                    <li [ngStyle]="{color: authForm.controls['username'].errors!['usernameWhitespace'] ? '#aab8c2' : '#1Da1f2'}">Username must not contain any spaces</li>
+                    <li [ngStyle]="{color: authForm.controls['username'].errors!['usernameLength'] ? '#aab8c2' : '#1Da1f2'}">Username must be betweet 4-16 characters</li>
+                    <li [ngStyle]="{color: authForm.controls['username'].errors!['usernameProfanity'] ? '#aab8c2' : '#1Da1f2'}">Username must not contain profanity</li>
+                  </ul>
+                </span>
+              </span>
+            </div>
+            <div class="form-group" *ngIf="!loginMode">
+              <label for="name" class="auth-text">Display Name</label>
+              <input id="name" formControlName="name" class="form-control" name="name"  />
+              <span *ngIf="!authForm.controls['name'].valid">
+                <span id="name-req" *ngIf="
+                  authForm.controls['name'].errors!['invalidName']
+                  ">Name must only contain letters and number and must be less than 20 characters
+                </span>
+              </span>
+            </div>
+            <div class="form-group">
+                <label for="password" class="auth-text">Password</label>
+                <input type="password" id="password" formControlName="password" class="form-control" required name="password" />
+                <span *ngIf="!authForm.controls['password'].valid && !loginMode">
+                  <span id="password-too-weak" *ngIf="authForm.controls['password'].errors!['passwordForbidden'] && !loginMode">
+                    Password too weak
+                  </span>
+                  <span id="password-too-weak" *ngIf="authForm.controls['password'].errors!['invalidCharsPass'] && !loginMode">
+                    Only letters, numbers, and the following special characters allowed: @-!_.?
+                  </span>
+                </span>
+              </div>
+            <div>
+                <button class="btn btn-primary blue-button" style="margin-right: 10px;" type="submit" [disabled]="!authForm.valid">{{ loginMode ? 'Login' : 'Sign Up'}}</button>
+            </div>
+            <div style="margin-top: 10px;">
+              <p><span class="auth-text">{{ loginMode ? 'Don\'t have an account? ' : 'Already have an account? ' }}</span><a (click)="onSwitchMode()" id="login-switch-a">{{ loginMode ? 'Create an account' : 'Log in'}}</a></p>
+            </div>
+        </form>
+    </div>
+</div>

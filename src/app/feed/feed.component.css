@@ -1,0 +1,125 @@
+.tweet-feed-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-tweet-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#active-tweet-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+#active-tweet-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -100px;
+  width: 500px;
+  height: 230px;
+  padding: 16px;
+  z-index: 1;
+  background: white;
+  box-shadow: 1 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: #657786;
+  border-radius: 20px;
+}
+
+#tweet {
+  position: relative;
+  top: -21px;
+  width: 462px;
+  height: 152px;
+  background-color: #657786;
+  border: none;
+  resize: none;
+  color: #e1e8ed;
+  font-size: 21px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #aab8c2;
+  font-size: 21px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+#tweet::-webkit-scrollbar {
+  display: none;
+}
+
+#char-count {
+  position: absolute;
+  color: #14171a;
+  font-size: 15px;
+  left: 17px;
+  bottom: 3px;
+}
+
+#tweet-btn {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  background-color: #1da1f2;
+  border-radius: 40px;
+  color: #e1e8ed;
+}
+
+#tweet-write {
+  width: 500px;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 700px) {
+  #active-tweet-box {
+    top: -100px;
+    width: 350px;
+    height: 190px;
+    padding: 16px;
+    box-shadow: 1 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+  }
+
+  #tweet {
+    top: -15px;
+    width: 325px;
+    height: 130px;
+    font-size: 15px;
+  }
+
+  textarea::-webkit-input-placeholder {
+    font-size: 15px;
+  }
+
+  #tweet-btn {
+    font-size: 12px;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  #char-count {
+    font-size: 12px;
+    bottom: 3px;
+  }
+}

@@ -1,0 +1,8 @@
+.col-md-12 {
+  margin-top: 80px;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/assets/fonts/HelveticaNeueMedium.ttf") format("truetype");
+}

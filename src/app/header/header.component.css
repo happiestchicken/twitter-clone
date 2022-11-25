@@ -1,0 +1,125 @@
+.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.twitter-logo-wrap {
+  background-color: #1da1f2;
+  margin-left: 8px;
+  padding: 10px;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#twitter-logo {
+  position: relative;
+  top: -1px;
+  height: 18px;
+}
+
+.feed-disc-wrap {
+  display: flex;
+  margin-left: 70px;
+}
+
+.navbar-center {
+  display: flex;
+  background-color: #14171a;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.navbar-right-side {
+  display: flex;
+}
+
+.feed-bubble {
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+#feed-btn {
+  color: #e1e8ed;
+  text-decoration: none;
+}
+
+#disc-btn {
+  color: #e1e8ed;
+  text-decoration: none;
+}
+
+.tweet-logout-wrap {
+  display: flex;
+}
+
+.fa-feather {
+  color: #e1e8ed;
+  font-size: 17px;
+}
+
+.fa-person-walking-arrow-right {
+  color: #e1e8ed;
+  font-size: 17px;
+}
+
+.feather-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #1da1f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guy-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #14171a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+
+.span-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0px;
+}
+
+body {
+  background-color: red;
+}
+
+@media (max-width: 700px) {
+  .navbar-center {
+    padding: 8px;
+  }
+
+  .feed-bubble {
+    font-size: 11px;
+    padding: 5px 8px 5px 8px;
+  }
+
+  .fa-feather {
+    font-size: 18px;
+  }
+
+  .feed-disc-wrap {
+    margin-left: 50px;
+  }
+}

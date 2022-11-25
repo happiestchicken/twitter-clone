@@ -1,0 +1,47 @@
+<body>
+  <header class="header">
+    <div class="twitter-logo-wrap">
+      <a (click)="refresh()"><img src="assets\images\twitter-logo-white.png" id="twitter-logo" /></a>
+    </div>
+    <div class="feed-disc-wrap" *ngIf="isAuthenticated">
+      <ul class="nav navbar-nav navbar-center navbar-middle" style="margin-right: 5px;" >
+        <span class="span-class">
+          <li>
+            <div class="feed-bubble" [ngStyle]="{backgroundColor: !this.isFeed ? '' : '#1da1f2'}">
+              <a style="cursor: pointer;"
+              id="feed-btn"
+              (click)="feedScreen()">Feed</a>
+            </div>
+          </li>
+        </span>
+        <span class="span-class">
+          <li>
+            <div class="feed-bubble" [ngStyle]="{backgroundColor: this.isFeed ? '' : '#1da1f2'}">
+              <a style="cursor: pointer;"
+              id="disc-btn"
+              (click)="discoverScreen()">Discover</a>
+            </div>
+          </li>
+        </span>
+      </ul>
+    </div>
+    <div class="tweet-logout-wrap" *ngIf="isAuthenticated">
+      <ul class="nav navbar-nav navbar-right-side" style="margin-right: 5px;" >
+        <span class="span-class">
+          <li>
+          <div class="feather-wrap">
+            <a style="cursor: pointer;" (click)="newTweetScr()"><i class="fa-solid fa-feather"></i></a>
+          </div>
+        </li>
+        </span>
+        <span class="span-class">
+          <li>
+            <div class="guy-wrap">
+              <a style="cursor: pointer;" (click)="onLogout()"><i class="fa-solid fa-person-walking-arrow-right"></i></a>
+            </div>
+          </li>
+        </span>
+      </ul>
+    </div>
+  </header>
+</body>

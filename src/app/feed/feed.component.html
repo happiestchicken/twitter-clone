@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12 tweet-feed-box">
+    <p *ngIf="isFeed">Tweets from users you follow appear here</p>
+    <app-tweet-item
+      *ngFor="let tweet of tweets; let i = index;"
+      [tweet]="tweet"
+      [index]="i"
+    ></app-tweet-item>
+  </div>
+</div>
+<div class="active-tweet-wrap" *ngIf="newTweet">
+  <div id="active-tweet-backdrop" (click)="onClose()">
+  </div>
+  <div id="active-tweet-box">
+    <form [formGroup]="tweetForm" (ngSubmit)="onSubmit()">
+      <textarea
+        id="tweet"
+        #tweet
+        name="tweet"
+        placeholder="What's happening?"
+        formControlName="tweet"
+      ></textarea>
+      <p id="char-count"><span [ngStyle]="(tweet.value.length > 140) ? {'color': '#e3242b'} : {color: tweet.value.length > 120 ? '#ffda36' : '#14171a'}">{{tweet.value.length}}</span>/140 Characters</p>
+      <button class="btn btn primary" id="tweet-btn" type="submit" [disabled]="!tweetForm.valid">Tweet</button>
+    </form>
+  </div>
+</div>
